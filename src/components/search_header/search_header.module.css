@@ -1,0 +1,29 @@
+.img {
+    width: 20px;
+    height: 20px;
+}
+
+.header {
+    display: flex;
+    height: 4rem;
+    padding: 0.8em 1em;
+    background: black;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+}
+
+.input {
+    flex-basis: 100%; /* flex 에서 넓이가 꽉 차게 */
+    font-size: 1.2rem;
+    outline: 0;
+}
+
+.button {
+    background-color: darkgray;
+    outline: 0;
+}
