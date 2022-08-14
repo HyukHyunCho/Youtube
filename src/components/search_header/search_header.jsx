@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './search_header.module.css';
 
-const SearchHeader = ({ onSearch }) => {
+// memo는 전달되는 porop이 전달되지 않으면 리렌더링이 되지않고 props이 변경되면 리렌더링 됨
+const SearchHeader = memo(({ onSearch }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -36,6 +37,6 @@ const SearchHeader = ({ onSearch }) => {
       </div>
     </header>
   );
-};
+});
 
 export default SearchHeader;

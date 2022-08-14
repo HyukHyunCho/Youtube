@@ -1,8 +1,15 @@
 /* box shadow generator */
 
 .container {
-    width: 50%;
     padding: 0.2em;
+}
+
+.container.grid {
+    width: 50%;
+}
+
+.container.list {
+    width: 100%;
 }
 
 .video {
