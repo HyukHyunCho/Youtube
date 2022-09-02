@@ -1,5 +1,5 @@
 .app {
-  max-width: 80rem;
+  max-width: 90rem;
 }
 
 .content {
@@ -11,7 +11,7 @@
 }
 
 .list {
-  flex: 1 1 30%;
+  flex: 1 1 10%;
 }
 
 @media screen and (max-width: 48rem) {

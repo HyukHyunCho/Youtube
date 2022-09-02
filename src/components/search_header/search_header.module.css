@@ -7,9 +7,41 @@
     display: flex;
     height: 4rem;
     padding: 0.8em 1em;
-    background: black;
-    color: white;
+    border-bottom: 1px solid #EAEAEA;
+    color: black;
+    background: white;
 }
+
+.menu {
+    width: 100%;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+
+.menu li {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0px 5px 0px 5px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+   
+}
+
+.on {
+    color: #FFF;
+    background: #030303;
+}
+
+.off {
+    border: 1px solid #BDBDBD;    
+    background: #EAEAEA;
+}
+
 
 .logo {
     display: flex;
@@ -24,6 +56,6 @@
 }
 
 .button {
-    background-color: darkgray;
+    background-color: #EAEAEA;
     outline: 0;
 }
