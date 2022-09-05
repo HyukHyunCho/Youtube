@@ -44,20 +44,33 @@ const SearchHeader = memo(({ onSearch }) => {
   return (
     <>
       <header className={styles.header}>
-        <div className={styles.logo}>
-          <img className={styles.img} src="/images/logo.png" alt="logo" />
-          <h1 className={styles.title}>Youtube</h1>
+
+        <div className={styles.header_start}>
+          <div className={styles.logo}>
+            <img className={styles.img} src="/images/logo.svg" alt="logo" />
+            <h3 className={styles.title}>Youtube</h3>
+
+          </div>
+        </div>
+
+        <div className={styles.header_center}>
           <input
             ref={inputRef}
             className={styles.input}
             type="search"
-            placeholder="Search..."
+            placeholder="검색"
             onKeyPress={onKeyPress}
           />
           <button className={styles.button} type="submit" onClick={onClick}>
             <img className={styles.img} src="/images/search.png" alt="search" />
           </button>
         </div>
+
+        <div className={styles.header_end}>
+
+        </div>
+
+
       </header>
       <section className={styles.menu}>
         <ul>

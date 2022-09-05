@@ -24,28 +24,42 @@ function App({ youtube }) {
   useEffect(() => {
     youtube
       .mostPopular() //
-      .then(videos => setVideos(videos));
+      .then(videos => { setVideos(videos); console.log(videos) });
   }, [youtube]);
 
-  return (
-    <div className={styles.app}>
-      <SearchHeader onSearch={search} />
-      <section className={styles.content}>
-        {selectedVideo && (
-          <div className={styles.detail}>
-            <VideoDetail video={selectedVideo} />
-          </div>
-        )}
 
-        <div className={styles.list}>
-          <VideoList
-            videos={videos}
-            onVideoClick={selectVideo}
-            display={selectedVideo ? "list" : "grid"}
-          />
-        </div>
-      </section>
-    </div>
+  useEffect(() => {
+    youtube
+      .commentList()
+      .then(comments => console.log(comments))
+  }, []);
+
+
+
+
+
+  return (
+    <>
+      <SearchHeader onSearch={search} />
+      <div className={styles.app}>
+
+        <section className={styles.content}>
+          {selectedVideo && (
+            <div className={styles.detail}>
+              <VideoDetail video={selectedVideo} />
+            </div>
+          )}
+
+          <div className={styles.list}>
+            <VideoList
+              videos={videos}
+              onVideoClick={selectVideo}
+              display={selectedVideo ? "list" : "grid"}
+            />
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
 

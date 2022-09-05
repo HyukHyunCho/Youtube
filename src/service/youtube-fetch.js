@@ -7,6 +7,15 @@ class YoutubeFetch {
       };
   }
   
+  // async mostPopular() {
+  //   const response = await fetch(
+  //     `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${this.key}`,
+  //     this.getRequestOptions
+  //   );
+  //   const result = await response.json();
+  //   return result.items;
+  // }
+
   async mostPopular() {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${this.key}`,
@@ -24,6 +33,17 @@ class YoutubeFetch {
     const result = await response.json();
     return result.items.map(item => ({ ...item, id: item.id.videoId }));
   }
+
+  async commentList() {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=10&videoId=H6kME8OcS8s&key=${this.key}`,
+      this.getRequestOptions
+    );
+    const result = await response.json();
+    console.log(result)
+    return result;
+  }
+
 }
 
 export default YoutubeFetch;

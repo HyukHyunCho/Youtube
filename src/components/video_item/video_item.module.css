@@ -36,6 +36,7 @@
 
 .thumbnail {
     width: 100%;
+    box-shadow: 0 5px 18px -7px rgba(0,0,0,1);
 }
 
 .title {
