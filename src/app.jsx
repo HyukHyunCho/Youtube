@@ -7,9 +7,16 @@ import VideoDetail from './components/video_detail/video_detail';
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [comments, setComments] = useState(null);
 
   const selectVideo = video => {
     setSelectedVideo(video);
+
+    youtube
+      .commentList(video.id)
+      .then(comments => {
+        setComments(comments);
+      });
   }
 
   const search = useCallback(query => {
@@ -22,21 +29,16 @@ function App({ youtube }) {
   }, []);
 
   useEffect(() => {
+    // youtube
+    //   .mostPopular() //
+    //   .then(videos => setVideos(videos));
     youtube
-      .mostPopular() //
-      .then(videos => { setVideos(videos); console.log(videos) });
+      .search("무한도전") //
+      .then(videos => {
+        setVideos(videos);
+        setSelectedVideo(null);
+      });
   }, [youtube]);
-
-
-  useEffect(() => {
-    youtube
-      .commentList()
-      .then(comments => console.log(comments))
-  }, []);
-
-
-
-
 
   return (
     <>
@@ -46,7 +48,7 @@ function App({ youtube }) {
         <section className={styles.content}>
           {selectedVideo && (
             <div className={styles.detail}>
-              <VideoDetail video={selectedVideo} />
+              <VideoDetail video={selectedVideo} comments={comments} />
             </div>
           )}
 

@@ -27,15 +27,16 @@ class Youtube {
     return response.data.items.map(item => ({ ...item, id: item.id.videoId }));
   }
 
-  async commentList() {
+  async commentList(query) {
     const response = await this.youtube.get("commentThreads", {
       params: {
         part: "snippet",
         maxResults: 10,
-        videoId: "H6kME8OcS8s"
+        videoId: query
       },
     });
-    return response;
+    return response.data.items.map(item => item.snippet.topLevelComment);
+    //return response.data.items.map(item => item.snippet.topLevelComment.snippet.textOriginal);
   }
 }
 
