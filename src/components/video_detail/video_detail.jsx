@@ -41,37 +41,30 @@ const VideoDetail = ({ video, video: { snippet }, comments }) => {
           ))
         }
       </div> */}
+
       {
         comments && comments.map(element => (
-          <div key={element.id}>
-            <div className={styles.commentContainer} >
-              <div className={styles.imgContainer}>
-                <img className={styles.img} src="/images/user.svg" alt="logo" />
-              </div>
-              <div className={styles.commentText1}>{element.snippet.textOriginal}</div>
-
+          <div className={styles.container} key={element.id}>
+            <div className={styles.authorContainer}>
+              <img className={styles.img} src={element.snippet.authorProfileImageUrl} alt="logo" />
             </div>
-            <div className={styles.commentText2}>{element.snippet.updatedAt}</div>
-            {/* <div className={styles.commentText2}>{element.snippet.likeCount}</div> */}
-
+            <div className={styles.mainContainer}>
+              <div className={styles.top}>
+                <div className={styles.userid}>{element.snippet.authorDisplayName}</div>
+                <div className={styles.time}>{element.snippet.updatedAt}</div>
+              </div>
+              <div className={styles.middle}>
+                <div className={styles.comment}>{element.snippet.textOriginal}</div>
+              </div>
+              <div className={styles.bottom}>
+                <div className={styles.likeCount}>{element.snippet.likeCount}</div>
+              </div>
+            </div>
           </div>
 
         ))
       }
 
-
-
-      <div>
-
-      </div>
-
-      <div>
-
-      </div>
-
-      <div>
-
-      </div>
 
     </section>
   )
