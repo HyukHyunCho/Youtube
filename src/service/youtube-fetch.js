@@ -40,7 +40,15 @@ class YoutubeFetch {
       this.getRequestOptions
     );
     const result = await response.json();
-    console.log(result)
+    return result;
+  }
+
+  async commentInsert() {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=10&videoId=H6kME8OcS8s&key=${this.key}`,
+      this.getRequestOptions
+    );
+    const result = await response.json();
     return result;
   }
 

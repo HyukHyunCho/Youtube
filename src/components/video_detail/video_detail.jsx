@@ -3,18 +3,24 @@ import CommentItem from '../comment_item/comment_item';
 
 import styles from './video_detail.module.css';
 
-const VideoDetail = ({ video, video: { snippet }, comments }) => {
+const VideoDetail = ({ youtube, video, video: { snippet }, comments }) => {
 
   // a.map(item => (
   //   console.log(item)
   // ))
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  // }, [comments]);
+    youtube
+      .commentInsert()
+      .then(comments => {
+        console.log(comments)
+      });
 
-  console.log(comments)
+  }, [comments]);
+
+  //console.log(comments)
 
   return (
     <section className={styles.detail}>

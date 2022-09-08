@@ -11,11 +11,11 @@ function App({ youtube }) {
 
   const selectVideo = video => {
     setSelectedVideo(video);
-
     youtube
       .commentList(video.id)
       .then(comments => {
         setComments(comments);
+        console.log(comments)
       });
   }
 
@@ -48,7 +48,7 @@ function App({ youtube }) {
         <section className={styles.content}>
           {selectedVideo && (
             <div className={styles.detail}>
-              <VideoDetail video={selectedVideo} comments={comments} />
+              <VideoDetail youtube={youtube} video={selectedVideo} comments={comments} />
             </div>
           )}
 
